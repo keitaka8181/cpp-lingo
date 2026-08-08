@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ターミナル風フォント */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap');
+
+/* ========================================
+   シンプルテーマ
+======================================== */
+.theme-simple {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* ========================================
+   ターミナルテーマ
+======================================== */
+.theme-terminal {
+  font-family: 'JetBrains Mono', monospace;
+  background: #0d1117;
+  color: #c9d1d9;
+}
+
+/* 緑フラッシュアニメーション */
+@keyframes greenFlash {
+  0% { background-color: rgba(0, 255, 65, 0.3); }
+  100% { background-color: transparent; }
+}
+
+.green-flash {
+  animation: greenFlash 0.5s ease-out;
+}
+
+/* タイピングカーソル */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+}
+
+/* スキャンライン効果 */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.theme-terminal .scanline::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(transparent, rgba(0, 255, 65, 0.1), transparent);
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* グロー効果 */
+.glow-green {
+  text-shadow: 0 0 5px #00ff41, 0 0 10px #00ff41;
+}
+
+.glow-green-strong {
+  text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41;
+}
+
+/* ターミナルボーダー */
+.terminal-border {
+  border: 1px solid #30363d;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
+}
+
+/* ホバーで光る */
+.hover-glow:hover {
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+  border-color: #00ff41;
+}
+
+/* シェイクアニメーション */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* ========================================
+   スクロールバー
+======================================== */
+/* シンプルテーマ */
+.theme-simple ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.theme-simple ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.theme-simple ::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.theme-simple ::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* ターミナルテーマ */
+.theme-terminal ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.theme-terminal ::-webkit-scrollbar-track {
+  background: #161b22;
+}
+
+.theme-terminal ::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 4px;
+}
+
+.theme-terminal ::-webkit-scrollbar-thumb:hover {
+  background: #00aa2a;
+}
